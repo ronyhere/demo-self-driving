@@ -128,7 +128,7 @@ def run_the_app():
     # Add boxes for objects on the image. These are the boxes for the ground image.
     boxes = metadata[metadata.frame == selected_frame].drop(columns=["frame"])
     draw_image_with_boxes(image, boxes, "YOLO data",
-        "**Human-annotated data** (frame `%i`)" % selected_frame_index)
+        "**Visualizing required Data** (frame `%i`)" % selected_frame_index)
 
     # Get the boxes for the objects detected by YOLO by running the YOLO model.
     yolo_boxes = yolo_v3(image, confidence_threshold, overlap_threshold)
