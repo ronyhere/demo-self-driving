@@ -137,19 +137,19 @@ def run_the_app():
 
 # This sidebar UI is a little search engine to find certain object types.
 def frame_selector_ui(summary):
-    st.sidebar.markdown("# RAUNAK web app")
+    st.sidebar.markdown("# RAUNAK's app")
 
     # The user can pick which type of object to search for.
-    object_type = st.sidebar.selectbox("Search for which objects?", summary.columns, 2)
+    object_type = st.sidebar.selectbox("Please select your preferences?", summary.columns, 2)
 
     # The user can select a range for how many of the selected objecgt should be present.
-    min_elts, max_elts = st.sidebar.slider("give info %ss (select a range)?" % object_type, 0, 25, [10, 20])
+    min_elts, max_elts = st.sidebar.slider("select info about %ss (select a range)?" % object_type, 0, 25, [10, 20])
     selected_frames = get_selected_frames(summary, object_type, min_elts, max_elts)
     if len(selected_frames) < 1:
         return None, None
 
     # Choose a frame out of the selected frames.
-    selected_frame_index = st.sidebar.slider("Choose a frame (index)", 0, len(selected_frames) - 1, 0)
+    selected_frame_index = st.sidebar.slider("Select desired frames (index)", 0, len(selected_frames) - 1, 0)
 
     # Draw an altair chart in the sidebar with information on the frame.
     objects_per_frame = summary.loc[selected_frames, object_type].reset_index(drop=True).reset_index()
@@ -171,8 +171,8 @@ def get_selected_frames(summary, label, min_elts, max_elts):
 # This sidebar UI lets the user select parameters for the YOLO object detector.
 def object_detector_ui():
     st.sidebar.markdown("# Model")
-    confidence_threshold = st.sidebar.slider("Confidence threshold", 0.0, 1.0, 0.5, 0.01)
-    overlap_threshold = st.sidebar.slider("Overlap threshold", 0.0, 1.0, 0.3, 0.01)
+    confidence_threshold = st.sidebar.slider("T1", 0.0, 1.0, 0.5, 0.01)
+    overlap_threshold = st.sidebar.slider("T2", 0.0, 1.0, 0.3, 0.01)
     return confidence_threshold, overlap_threshold
 
 # Draws an image with boxes overlayed to indicate the presence of cars, pedestrians etc.
