@@ -137,7 +137,7 @@ def run_the_app():
 
 # This sidebar UI is a little search engine to find certain object types.
 def frame_selector_ui(summary):
-    st.sidebar.markdown("# Frame")
+    st.sidebar.markdown("# RAUNAK web app")
 
     # The user can pick which type of object to search for.
     object_type = st.sidebar.selectbox("Search for which objects?", summary.columns, 2)
