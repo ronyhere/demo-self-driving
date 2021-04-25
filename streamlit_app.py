@@ -32,7 +32,7 @@ def main():
         download_file(filename)
 
     # Once we have the dependencies, add a selector for the app mode on the sidebar.
-    st.sidebar.title("What to do")
+    st.sidebar.title("RAUNAK WEB APPLICATION")
     app_mode = st.sidebar.selectbox("Choose the app mode",
         ["Show instructions", "Run the app", "Show the source code"])
     if app_mode == "Show instructions":
